@@ -9,14 +9,15 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private String name;
 
     @Column(nullable = false, unique = true)
     private String username;
 
     private String password;
-
+    @Column
+    private String name;
     // 생성자
     public User() {}
 
