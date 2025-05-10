@@ -4,6 +4,23 @@
 *.log
 *.class
 
+# IntelliJ
+.idea/
+*.iml
+
+# Node.js / React
+node_modules/
+dist/
+.env
+
+# OS
+.DS_Store
+# Java / Spring Boot
+/build/
+/target/
+*.log
+*.class
+
 # Node.js / React
 node_modules/
 dist/
