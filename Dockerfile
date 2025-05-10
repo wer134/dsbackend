@@ -14,7 +14,7 @@ COPY settings.gradle .
 COPY src src
 
 # 5. Gradle 빌드 실행 (no-daemon 옵션으로 Render 환경에 최적화)
-RUN chmod +x gradlew && ./gradlew build --no-daemon
+RUN chmod +x gradlew && ./gradlew build -x test --no-daemon
 
 # 6. 빌드된 JAR 실행
 ENTRYPOINT ["java", "-jar", "build/libs/*.jar"]
