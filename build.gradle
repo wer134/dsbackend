@@ -31,3 +31,6 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+bootjar {
+	archiveFileName = 'app.jar'
+}
