@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layout</title>
+    <style>
+        /* 초기 스타일 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* 상단 헤더 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #003580;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right input {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .header-right button {
+            padding: 6px 15px;
+            background-color: #0055aa;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header-right a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* 카테고리 메뉴 */
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            padding: 15px 20px;
+            display: inline-block;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #f4f4f4;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            width: auto;
+            min-width: 150px;
+            white-space: nowrap;
+            border-radius: 5px;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #f4f4f4;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        /* 좌측 로그인 박스 */
+        .left-column {
+            width: 20%;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .left-column h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .left-column input {
+            width: 93%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .left-column button {
+            width: 93%;
+            padding: 8px;
+            background-color: #003580;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .links a {
+            color: #0055aa;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 메인 배너 */
+        .main-banner {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main-banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* 콘텐츠 영역 */
+        .content {
+            display: flex;
+            padding: 20px;
+        }
+
+        .content .main {
+            width: 75%;
+            padding: 0 20px;
+        }
+
+        .content .main table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content .main table th,
+        .content .main table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .content .main table th {
+            background-color: #003580;
+            color: white;
+        }
+
+        /* 광고 */
+        .ad-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .ad-box img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">CHOI</a>
+        </div>
+        <div class="header-right">
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button>검색</button>
+            <a href="#">회원가입</a>
+            <a href="#">로그인</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#">쇼핑/투자</a>
+                <div class="dropdown">
+                    <a href="dropdown/indexsp.html">쇼핑</a>
+                    <a href="dropdown/indextu.html">투자</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">스포츠</a>
+                <div class="dropdown">
+                    <a href="dropdown/indexsoc.html">축구</a>
+                    <a href="dropdown/indexbase.html">야구</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">유머/이슈</a>
+                <div class="dropdown">
+                    <a href="dropdown/indexhu.html">유머</a>
+                    <a href="dropdown/indexis.html">이슈</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">갤러리</a>
+                <div class="dropdown">
+                    <a href="dropdown/indexmad.html">매드무비</a>
+                    <a href="dropdown/indexss.html">스샷</a>
+                </div>
+            </li>
+            <li>
+                <a href="#">삭제/문의</a>
+                <div class="dropdown">
+                    <a href="dropdown/indexq.html">문의</a>
+                    <a href="dropdown/indexfaq.html">FAQ</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="left-column">
+            <h3>로그인</h3>
+            <input type="text" placeholder="아이디">
+            <input type="password" placeholder="비밀번호">
+            <button>로그인</button>
+            <div class="links">
+                <a href="./indexsignup.html">회원가입</a>
+                <a href="./indexpwdfind.html">비밀번호 찾기</a>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="main-banner">
+                <img src="https://via.placeholder.com/800x200" alt="메인 배너">
+            </div>
+
+            <table>
+                <tr>
+                    <th>최신 게시글</th>
+                    <th>작성일</th>
+                </tr>
+                <tr>
+                    <td>새로운 글 1</td>
+                    <td>2024-12-01</td>
+                </tr>
+                <tr>
+                    <td>새로운 글 2</td>
+                    <td>2024-12-01</td>
+                </tr>
+            </table>
+
+            <div class="ad-box">
+                <img src="https://via.placeholder.com/300x600" alt="광고">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
