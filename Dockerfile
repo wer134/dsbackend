@@ -2,7 +2,7 @@
 FROM gradle:8.3.0-jdk17 AS build
 COPY --chown=gradle:gradle . /home/gradle/project
 WORKDIR /home/gradle/project
-RUN gradle build -x test --no-daemon
+RUN ./gradlew build -x test --no-daemon
 
 # 🚀 2단계: Run Stage
 FROM openjdk:17-jdk-slim
