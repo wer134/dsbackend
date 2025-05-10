@@ -16,8 +16,6 @@ public class User {
     private String username;
 
     private String password;
-    @Column
-    private String name;
     // 생성자
     public User() {}
 
