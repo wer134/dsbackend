@@ -7,6 +7,6 @@ RUN ./gradlew build -x test --no-daemon
 # ✅ 2단계: Run stage
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /home/gradle/project/build/libs/backend-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /home/backend/backed/build/libs/backend-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
