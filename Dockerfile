@@ -1,20 +1,12 @@
+# 1. OpenJDK 17 이미지 사용
 FROM openjdk:17-jdk-slim
 
+# 2. 작업 디렉토리 설정
 WORKDIR /app
 
-# gradle 파일들 복사
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
-COPY src src
+# 3. 필요한 JAR 파일 복사
+COPY build/libs/backend-0.0.1-SNAPSHOT.jar app.jar
 
-# build
-RUN chmod +x gradlew && ./gradlew build -x test --no-daemon
-
-# jar 복사 (jar 이름 고정되어 있다고 가정)
-COPY build/libs/backend-0.0.1-SNAPSHOT.jar
-
-# 실행
+# 4. 애플리케이션 실행
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
